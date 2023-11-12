@@ -12,6 +12,9 @@
             <a href="#" class="fa fa-heart"></a>
             <div id="cart" class="fa fa-shopping-cart"></div>
             <div id="login-btn" class="fas fa-user"></div>
+
+
+
         </div>
     </div>
 
@@ -49,7 +52,7 @@
     <!-------------------- signin form --------------------->
 
     <div class="container">
-        <form action="#" class="login active">
+        <form action="login.php" class="login active">
             <h3>sign in</h3>
 
             <div class="form-group">
@@ -78,7 +81,7 @@
 
             <div class="signUp-link">
                 <a href="#">Forgot password?</a>
-                <p>I don't have an account. <a href="#" onclick="switchForm('register', event)">sign up</a></p>
+                <p>I don't have an account. <a href="?act=res" onclick="switchForm('register', event)">sign up</a></p>
             </div>
 
             <div class="social-flatform">
@@ -95,7 +98,7 @@
 
         <!------------------ sign up form ----------------->
 
-        <form action="#" class="register">
+        <form action="resgister.php" class="register">
             <h3>sign up</h3>
 
             <div class="form-group">
@@ -140,7 +143,7 @@
             <button type="submit" class="btn">sign up</button>
 
             <div class="signUp-link">
-                <p>I already have an account. <a href="#" onclick="switchForm('login', event)">Sign In</a></p>
+                <p>I already have an account. <a href="?act=login" onclick="switchForm('login', event)">Sign In</a></p>
             </div>
 
         </form>

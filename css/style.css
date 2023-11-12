@@ -9,7 +9,8 @@
     --grey:#efedf8;
     --dark-grey: #B7B7B7;
     --white:#fff;
-    --red: #FE2727;
+    --red: #BF0200;
+    --red-light: #FFD6E4;
     --light-red: #f7b4b4;
     --light-yell: rgb(230, 194, 32);
     --yellow: rgb(213, 167, 16);
@@ -94,7 +95,8 @@ section{
 /* heading end */
 
 .btn,
-.optn-btn{
+.optn-btn,
+.delete-btn{
     margin-top: 1rem;
     display: inline-block;
     padding: .9rem 3rem;
@@ -106,7 +108,8 @@ section{
 }
 
 .btn i,
-.optn-btn i{
+.optn-btn i,
+.delete-btn i{
     font-size: 1.5rem;
     padding-right: 1rem;
 }
@@ -119,12 +122,20 @@ section{
     background: var(--light-yell);
 }
 
+.delete-btn{
+    background: var(--red);
+}
+
 .btn:hover{
     background: var(--dark-color);
 }
 
 .optn-btn:hover{
     background: var(--yellow);
+}
+
+.delete-btn:hover{
+    background: var(--red-light);
 }
 
 
