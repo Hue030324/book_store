@@ -107,9 +107,7 @@ section{
     font-weight: 500;
 }
 
-.btn i,
-.optn-btn i,
-.delete-btn i{
+.btn i{
     font-size: 1.5rem;
     padding-right: 1rem;
 }
@@ -205,6 +203,34 @@ section{
     color: var(--green);
 }
 
+.header .header-1 .account-box{
+    position: absolute;
+    top: 10%; right: 2rem;
+    width: 25rem;
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+    padding: 2rem;
+    background: var(--white);
+    text-align: center;
+    border: var(--border);
+    display: none;
+    animation: fadeIn .2s linear;
+}
+
+.header .header-1 .account-box.active{
+    display: inline-block;
+}
+
+.header .header-1 .account-box p{
+    font-size: 1.5rem;
+    color: var(--black-1);
+    margin-bottom: 1.5rem;
+}
+
+.header .header-1 .account-box p span{
+    color: var(--green);
+}
+
 /* header 1 end */
 
 #search-btn{
@@ -265,129 +291,145 @@ section{
 
 /* -------------------- login form ------------------------end*/
 
-.login-form-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(207, 250, 214, 0.9);
-    position: fixed;
-    top: 0; right: -105%;
-    z-index: 10000;
-    height: 100%;
-    width: 100%;
-}
-
-.login-form-container.active{
-    right: 0;
-}
-
-.login-form-container .container {
+.form-container {
 	width: 40rem;
-    padding: 2.5rem;
+    min-height:auto;
+    border-radius: .5rem;
+    /* border: var(--border); */
+    padding: 1rem;
+    position: relative;
+    margin: auto;
     align-items: center;
-    border-radius: 1rem;
-    margin: 2rem;
-	position: relative;
     justify-content: center;
+    overflow: hidden;
+    /* box-shadow: var(--box-shadow); */
 }
 
-.login-form-container .container form {
-	width: 100%;
+.form-container form {
 	padding: 2rem;
-	border-radius: .5rem;
-	background: #fff;
-	position: absolute;
-    border: var(--border);
+    /* width: 40rem; */
+    border-radius: .5rem;
     box-shadow: var(--box-shadow);
-	top: 50%;
-	transform: translateY(-50%) scale(.8);
+    border: var(--border);
+    background: #fff;
+
+    /* text-align: center; */
+	/* transform: translateY(-50%) scale(.8);
 	opacity: 0;
 	z-index: 100;
 	transition: all .3s ease;
-	transition-delay: 0s;
+	transition-delay: 0s; */
 }
-
-.login-form-container .container form.active {
+/* 
+.form-container form.active {
 	transform: translateY(-50%);
 	opacity: 1;
 	z-index: 200;
 	transition-delay: .3s;
-}
+} */
 
-.login-form-container .container form h3{
-    font-size: 2.5rem;
+.form-container form h3{
+    font-size: 3rem;
     text-transform: uppercase;
     color: var(--black);
     text-align: center;
     padding-bottom: 1.5rem;
 }
 
-.login-form-container .container form .form-group label{
+.form-container form .error-msg{
+    margin: 10px 0;
     display: block;
+    background: var(--red);
+    color: var(--grey);
+    border-radius: 1rem;
     font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.form-container form .form-group label{
+    display: block;
+    font-size: 1.6rem;
     padding-top: .9rem;
 }
 
-.login-form-container .container form .form-group .input-group {
+.form-container form .form-group .input-group {
 	position: relative;
 }
 
-.login-form-container .container form .form-group .input-group input {
+.form-container form .form-group .input-group input {
 	padding: 1rem 1.2rem;
     margin: .6rem 0;
 	outline: none;
 	border-radius: .5rem;
 	border: var(--border);
 	width: 100%;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: var(--black);
     text-transform: none;
 	transition: all .3s ease;
 }
 
-.login-form-container .container form .form-group .input-group input:hover{
+.form-container form .box{
+    width: 100%;
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+    padding:1.2rem 1.4rem;
+    font-size: 1.5rem;
+    color:var(--black);
+    border:var(--border);
+    margin:1rem 0;
+ }
+
+.form-container form .form-group .input-group input:hover,
+.form-container form .box:hover{
     box-shadow: 0 0 0 1px var(--light-green);
     border: 1px solid var(--green);
 }
 
-/*-------------- Validation --------------------*/
-.login-form-container .container form .form-group .input-group input:focus,
-.login-form-container .container form .form-group .input-group input:not(:placeholder-shown) {
+.form-container form .form-group .input-group input:focus,
+.form-container form .form-group .input-group input:not(:placeholder-shown) {
 	border-color: var(--green);
 	background: var(--grey);
 }
-.login-form-container .container form .form-group .input-group input:focus + i,
-.login-form-container .container form .form-group .input-group input:not(:placeholder-shown) + i {
+.form-container form .form-group .input-group input:focus + i,
+.form-container form .form-group .input-group input:not(:placeholder-shown) + i {
 	color: var(--green);
 }
-.login-form-container .container form .form-group .input-group input:focus:valid {
+.form-container form .form-group .input-group input:focus:valid {
 	box-shadow: 0 0 0 .1rem var(--light-green);
 }
-.login-form-container .container form .form-group .input-group input:valid:not(:placeholder-shown) {
+.form-container form .form-group .input-group input:valid:not(:placeholder-shown) {
 	border-color: var(--green);
 }
-.login-form-container .container form .form-group .input-group input:valid:not(:placeholder-shown) + i {
+.form-container form .form-group .input-group input:valid:not(:placeholder-shown) + i {
 	color: var(--green);
 }
-.login-form-container .container form .form-group .input-group input:invalid:not(:placeholder-shown) {
+.form-container form .form-group .input-group input:invalid:not(:placeholder-shown) {
 	border-color: var(--red);
 }
-.login-form-container .container form .form-group .input-group input:invalid:not(:placeholder-shown) + i {
+.form-container form .form-group .input-group input:invalid:not(:placeholder-shown) + i {
 	color: var(--red);
 }
-.login-form-container .container form .form-group .input-group input:focus:invalid {
+.form-container form .form-group .input-group input:focus:invalid {
 	box-shadow: 0 0 0 .1rem var(--light-red);
 }
-.login-form-container .container form .form-group .input-group input:focus,
-.login-form-container .container form .form-group .input-group input:focus:placeholder-shown {
+.form-container form .form-group .input-group input:focus,
+.form-container form .form-group .input-group input:focus:placeholder-shown {
 	box-shadow: 0 0 0 .1rem rgb(137, 213, 139);
+}
+
+.form-container form select:focus,
+.form-container form select:focus:placeholder-shown{
+    border-color: var(--green);
+	background: var(--grey);
 }
 /*------------- Validation ----------------*/
 
 
-.login-form-container .container form .form-group .input-group i {
+.form-container form .form-group .input-group i {
 	position: absolute;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 	top: 50%;
 	transform: translateY(-50%);
 	right: 20px;
@@ -395,71 +437,72 @@ section{
 	pointer-events: none;
 	transition: all .3s ease;
 }
-.login-form-container .container form .form-group span {
-	font-size: 1.1rem;
+.form-container form .form-group span {
+	font-size: 1.2rem;
 	text-transform: none;
 }
-
-.login-form-container .container form .remember{
+/* 
+.form-container form .remember{
     margin: 1.8rem .5rem .8rem .5rem;
 }
 
-.login-form-container .container form .remember label{
+.form-container form .remember label{
     color: var(--black);
     font-size: 1.3rem;
 }
 
-.login-form-container .container form .remember input{
+.form-container form .remember input{
     accent-color: var(--green);
-}
+} */
 
-.login-form-container .container form .btn {
+
+.form-container form .btn {
 	text-align: center;
     width: 100%;
     margin: 1rem 0;
 }
 
-.login-form-container .container form .signUp-link{
-    font-size: 1.4rem;
+.form-container form .signUp-link{
+    font-size: 1.5rem;
     text-align: center;
     margin: 1.5rem 0 ;
 }
 
-.login-form-container .container form .signUp-link a{
+.form-container form .signUp-link a{
     text-decoration: none;
     color: var(--green);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
-.login-form-container .container form .signUp-link a:hover{
+.form-container form .signUp-link a:hover{
     color: var(--dark-color);
     text-decoration: underline;
 }
 
-.login-form-container .container form .signUp-link p{
+.form-container form .signUp-link p{
     color: var(--light-color);
     text-transform: none;
 }
 
-.login-form-container .container form .signUp-link p a{
+.form-container form .signUp-link p a{
     font-size: 1.5rem;
     text-decoration: none;
     color: var(--green);
 }
 
-.login-form-container .container form .signUp-link p a:hover{
+.form-container form .signUp-link p a:hover{
     color: var(--dark-color);
     text-decoration: underline;
     padding-left: .5rem;
 }
 
-.login-form-container .container form .social-flatform{
-    font-size: 1.3rem;
+.form-container form .social-flatform{
+    font-size: 1.4rem;
     color: var(--light-color);
     text-align: center;
 }
 
-.login-form-container .container form .social-flatform .social-icons a{
+.form-container form .social-flatform .social-icons a{
     display: inline-block;
     width: 3rem;
     height: 3rem;
@@ -473,24 +516,24 @@ section{
 }
 
 
-.login-form-container .container form .social-flatform .social-icons a i{
+.form-container form .social-flatform .social-icons a i{
     color: var(--green);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     transition: .3s;
 }
 
 
-.login-form-container .container form .social-flatform .social-icons a:hover{
+.form-container form .social-flatform .social-icons a:hover{
     background: var(--dark-color);
     color: #fff;
 }
 
-.login-form-container .container form .social-flatform .social-icons a:hover i{
+.form-container form .social-flatform .social-icons a:hover i{
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
-
+/* 
 
 .login-form-container #close-login-btn{
     position: absolute;
@@ -498,14 +541,14 @@ section{
     font-size: 4rem;
     color: var(--black);
     cursor: pointer;
-}
+} */
 
 /* -------------------- login form ------------------------end*/
 
 
 /*------------------------ home --------------------------starts */
 .home{
-    background: url(img/banner-bg.jpg) no-repeat;
+    background: url(../img/banner-bg.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }

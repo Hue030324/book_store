@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    --green:#0b921d;
+    --light-green: #9dec89;
+    --dark-color:#075504;
+    --black:#2e2e2e;
+    --light-color:#666;
+    --grey:#efedf8;
+    --dark-grey: #B7B7B7;
+    --white:#fff;
+    --red: #BF0200;
+    --red-light: #FFD6E4;
+    --light-red: #f7b4b4;
+    --light-yell: rgb(230, 194, 32);
+    --yellow: rgb(213, 167, 16);
+    --border:.1rem solid rgba(0,0,0,.1);
+    --border-hover:.1rem solid var(--dark-color);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+}
+
+
+.btn,
+.optn-btn,
+.delete-btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    border-radius: .5rem;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+
+.btn{
+    background: var(--green);
+}
+
+.optn-btn{
+    background: var(--light-yell);
+}
+
+.delete-btn{
+    background: var(--red);
+}
+
+.btn:hover{
+    background: var(--dark-color);
+}
+
+.optn-btn:hover{
+    background: var(--yellow);
+}
+
+.delete-btn:hover{
+    background: var(--red-light);
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 60px;
+}
+
+.container .content{
+    text-align: center;
+}
+
+.container .content h3{
+    font-size: 30px;
+    color: var(--black);
+}
+
+.container .content h3 span{
+    background: var(--green);
+    color: var(--white);
+    border-radius: 5px;
+    padding: 0 15px;
+}
+
+.container .content h1{
+    font-size: 50px;
+    color: var(--black);
+}
+
+.container .content h1 span{
+    color: var(--dark-color);
+}
+
+.container .content p{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+

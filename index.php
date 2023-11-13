@@ -21,13 +21,14 @@
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php require_once 'header.php'; ?>
 
 
-    <?php include 'controll.php'; ?>
+    <?php require_once 'controll.php'; ?>
 
 
-    <?php include 'footer.php'; ?>
+    <?php require_once 'footer.php'; ?>
+
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 

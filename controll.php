@@ -17,6 +17,15 @@
         case "order":
 		    require_once("order.php");
         break;
+		case "login":
+		    require_once("login.php");
+        break;
+		case "res":
+		    require_once("resgister.php");
+        break;
+		case "logout":
+		    require_once("logout.php");
+        break;
         default:
 			require_once('home.php');
 		break;
