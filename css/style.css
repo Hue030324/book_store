@@ -10,6 +10,7 @@
     --dark-grey: #B7B7B7;
     --white:#fff;
     --red: #BF0200;
+    --dark-red: #6f0707;
     --red-light: #FFD6E4;
     --light-red: #f7b4b4;
     --light-yell: rgb(230, 194, 32);
@@ -133,7 +134,7 @@ section{
 }
 
 .delete-btn:hover{
-    background: var(--red-light);
+    background: var(--dark-red);
 }
 
 

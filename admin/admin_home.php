@@ -4,13 +4,13 @@ include 'connect.php';
 
 session_start();
 
-$admin_id = $_SESSION['admin_id'];
-
-if(!isset($admin_id)){
-   header('location:?act=home');
+if(!isset($_SESSION['admin_name'])){
+   header('location:'); 
 }
 
 ?>
+
+<!-- trang vi du cho dang nhap admin -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,7 @@ if(!isset($admin_id)){
     <title>admin</title>
 
     <!-- custom css file link -->
-    <link rel="stylesheet" href="../css/admin_style.css">
+    <link rel="stylesheet" href="css/admin_style.css">
 </head>
 
 <body>
@@ -31,9 +31,7 @@ if(!isset($admin_id)){
             <h3>hi, <span>admin</span></h3>
             <h1>welcom <span><?php echo $_SESSION['admin_name']; ?></span></h1>
             <p>this is admin page</p>
-            <a href="../login.php" class="btn">login</a>
-            <a href="../resgister.php" class="btn">register</a>
-            <a href="../logout.php" class="btn">logout</a>
+            <a href="?act=logout" class="delete-btn">logout</a>
         </div>
 
     </div>
