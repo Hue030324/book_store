@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
       }
 
    }else{
-      $message[] = 'incorrect email or password!';
+      $msg[] = 'incorrect email or password!';
    }
 
 }
@@ -46,9 +46,9 @@ if(isset($_POST['submit'])){
             <h3>sign in</h3>
 
             <?php
-            if(isset($message)){
-                foreach($message as $message){
-                    echo '<span class="error-msg">'.$message.'</span>';
+            if(isset($msg)){
+                foreach($msg as $msg){
+                    echo '<span class="error-msg">'.$msg.'</span>';
                 };
             };
             ?>

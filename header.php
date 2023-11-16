@@ -4,16 +4,28 @@ include 'connect.php';
 
 session_start();
 
+?>
 
+<?php
+if(isset($message)){
+   foreach($message as $message){
+      echo '
+      <div class="message">
+         <span>'.$message.'</span>
+         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+      </div>
+      ';
+   }
+}
 ?>
 
 <header class="header">
     <div class="header-1">
         <a href="#" class="logo"><img src="img/logo.png" alt=""></a>
 
-        <form action="" class="search-form">
-            <input type="search" name="" placeholder="search here..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
+        <form method="post" action="?act=search" class="search-form">
+            <input type="search" name="content" placeholder="search here..." id="search-box">
+            <button type="submit" name="btn-search" for="search-box" class="fas fa-search"></button>
         </form>
 
         <div class="icons">

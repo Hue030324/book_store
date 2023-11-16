@@ -5,11 +5,11 @@ document.querySelector('#user-btn').onclick = () =>{
     accountBox.classList.toggle('active');
 }
 
-searchForm = document.querySelector('.search-form');
+// searchForm = document.querySelector('.search-form');
 
-document.querySelector('#search-btn').onclick = () =>{
-    searchForm.classList.toggle('active');
-}
+// document.querySelector('#search-btn').onclick = () =>{
+//     searchForm.classList.toggle('active');
+// }
 
 
 // let loginForm = document.querySelector('.login-form-container');
@@ -45,6 +45,10 @@ window.onload = () =>{
 
     fadeOut();
 
+}
+
+function myFunction() {
+  alert("Hello! I am an alert box!");
 }
 
 function switchForm(className, e) {

@@ -13,13 +13,13 @@ if(isset($_POST['submit'])){
     $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
  
     if(mysqli_num_rows($select_users) > 0){
-       $message[] = 'user already exist!';
+       $msg[] = 'user already exist!';
     }else{
        if($pass != $cpass){
-          $message[] = 'confirm password not matched!';
+          $msg[] = 'confirm password not matched!';
        }else{
           mysqli_query($conn, "INSERT INTO `users`(name, email, password, user_type) VALUES('$name', '$email', '$cpass', '$user_type')") or die('query failed');
-          $message[] = 'registered successfully!';
+          $msg[] = 'Resgister successfully!!';
           header('location:?act=login');
        }
     }
@@ -37,9 +37,9 @@ if(isset($_POST['submit'])){
             <h3>sign up</h3>
 
             <?php
-            if(isset($message)){
-                foreach($message as $message){
-                    echo '<span class="error-msg">'.$message.'</span>';
+            if(isset($msg)){
+                foreach($msg as $msg){
+                    echo '<span class="error-msg">'.$msg.'</span>';
                 };
             };
             ?>

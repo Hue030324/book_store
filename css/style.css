@@ -137,6 +137,34 @@ section{
     background: var(--dark-red);
 }
 
+.message{
+    position: sticky;
+    top:0;
+    margin:0 auto;
+    max-width: 1200px;
+    background-color: var(--white);
+    padding:2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10000;
+    gap:1.5rem;
+ }
+ 
+ .message span{
+    font-size: 2rem;
+    color:var(--black);
+ }
+ 
+ .message i{
+    cursor: pointer;
+    color:var(--green);
+    font-size: 2.5rem;
+ }
+ 
+ .message i:hover{
+    transform: rotate(90deg);
+ }
 
 /* header 1 */
 
@@ -179,14 +207,15 @@ section{
     box-shadow: var(--box-shadow);
 }
 
-.header .header-1 .search-form label{
+.header .header-1 .search-form button{
     font-size: 2.5rem;
     padding-right: 1.5rem;
     color: var(--black);
     cursor: pointer;
+    background:#fff;
 }
 
-.header .header-1 .search-form label:hover{
+.header .header-1 .search-form button:hover{
     color: var(--green);
 }
 
@@ -771,60 +800,7 @@ section{
 }
 
 
-/* .newsletter form{
-    max-width: 45rem;
-    margin-left: auto;
-    text-align: center;
-    padding: 5rem 0;
-}
 
-.newsletter form h3{
-    font-size: 2.2rem;
-    color: #fff;
-    padding-bottom: .7rem;
-    font-weight: normal;
-}
-
-.newsletter form .box{
-    width: 100%;
-    margin: .7rem 0;
-    padding: 1rem 1.2rem;
-    font-size: 1.6rem;
-    color: var(--black);
-    border-radius: .5rem;
-    text-transform: none;
-}
-
-.newsletter form input[type='email']:hover{
-    box-shadow: 0 0 0 1px var(--light-green);
-    border: 1px solid var(--green);
-} */
-
-/*--------------- validation ------------------*/
-/* .newsletter form input[type='email']:focus,
-.newsletter form input[type='email']:focus:not(:placeholder-shown){
-    border-color: var(--green);
-	background: var(--grey);
-}
-
-.newsletter form input[type='email']:focus,
-.newsletter form input[type='email']:focus:placeholder-shown{
-    box-shadow: 0 0 0 .2rem rgb(142, 232, 145);
-}
-
-.newsletter form input[type='email']:focus:valid {
-	box-shadow: 0 0 0 .2rem var(--light-green);
-}
-.newsletter form input[type='email']:valid:not(:placeholder-shown) {
-	border-color: var(--green);
-}
-.newsletter form input[type='email']:invalid:not(:placeholder-shown) {
-	border-color: var(--red);
-}
-.newsletter form input[type='email']:focus:invalid {
-	box-shadow: 0 0 0 .2rem var(--light-red);
-} */
-/*--------------- validation ------------------*/
 
 /*---------------------- newsletter --------------------- end */
 
@@ -832,52 +808,77 @@ section{
 
 /*---------------------- arrivals ---------------------- starts */
 
-.arrivals .arrivals-slider .box{
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem 1rem;
-    border: var(--border);
-    margin: 1rem 0;
-    box-shadow: var(--box-shadow);
+.arrivals .box-container{
+    max-width: 1200px;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 33rem);
+    align-items: flex-start;
+    gap:2rem;
+    justify-content: center;
+    padding-top: 2.5rem;
+}
+.arrivals .box-container .box {
     border-radius: .5rem;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    padding:1.2rem;
+    text-align: center;
+    border:var(--border);
+    position: relative;
 }
 
-.arrivals .arrivals-slider .box:hover{
+.arrivals .box-container .box:hover {
     border: var(--border-hover);
 }
 
-.arrivals .arrivals-slider .box .image img{
-    height: 15rem;
+.arrivals .box-container .box .image {
+    height: 32rem;
 }
 
-.arrivals .arrivals-slider .box .content h3{
+.arrivals .box-container .box:hover img{
+    transform: scale(0.9);
+}
+
+.arrivals .box-container .box .name {
+    padding:1rem 0;
     font-size: 1.9rem;
-    color: var(--black);
+    color:var(--black);
+    font-weight: bold;
 }
 
-.arrivals .arrivals-slider .box .content .price{
-    font-size: 2rem;
-    color: var(--black);
-    padding-bottom: .5rem;
 
-}
-
-.arrivals .arrivals-slider .box .content .price span{
-    font-size: 1.3rem;
-    color: var(--light-color);
-    text-decoration: line-through;
-}
-
-.arrivals .arrivals-slider .box .content .stars i{
+.arrivals .box-container .box .stars i {
     font-size: 1.5rem;
     color: var(--green);
 }
 
-/*---------------------- arrivals ----------------------end */
+.arrivals .box-container .box .qty{
+    width: 100%;
+    padding: 0.5em;
+    border-radius: .5rem;
+    border:var(--border);
+    margin:1rem 0;
+    text-align: center;
+    font-size: 1.6rem;
+}
 
+.arrivals .box-container .box .price {
+    position: absolute;
+    top:1rem; left:1rem;
+    border-radius: 50%;
+    padding:1rem;
+    font-size: 2.5rem;
+    color:var(--white);
+    background-color: crimson;
+}
 
-/*---------------------- reviews ---------------------- starts */
+.arrivals .box-container .box .price_2{
+    font-size: 1.8rem;
+    color: var(--light-color);
+    text-decoration: line-through;
+}
+
 
 .about .flex{
     max-width: 1200px;
@@ -914,6 +915,9 @@ section{
     color:var(--light-color);
  }
 
+/*---------------------- arrivals ---------------------- end */
+
+/*---------------------- reviews ---------------------- starts */
 
 .reviews .reviews-slider .box{
     border: var(--border);
@@ -956,6 +960,7 @@ section{
 
 /*---------------------- reviews ---------------------- end*/
 
+/*---------------------- authors ---------------------- starts */
 
 .authors .heading{
     margin-bottom: 2.5rem;
@@ -1027,6 +1032,9 @@ section{
     padding:1.5rem;
     background-color: var(--white);
 }
+
+/*---------------------- authors ---------------------- end */
+
 
 /* ----------------------contact --------------------- start */
 
@@ -1239,6 +1247,7 @@ section{
 /* ----------- Validation ---------- */
 
 /* ----------------------contact --------------------- end */
+
 
 /* -------- place orders     */
 
