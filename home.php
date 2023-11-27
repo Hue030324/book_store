@@ -2,32 +2,7 @@
 
 include 'connect.php';
 
-// session_start();
-
-// $user_id = $_SESSION['user_id'];
-
-// if(!isset($user_id)){
-//    header('location:?act=home');
-// }
-
-if(isset($_POST['add_to_cart'])){
-
-   $product_name = $_POST['product_name'];
-   $product_price = $_POST['product_price'];
-   $product_ori_price = $_POST['product_ori_price'];
-   $product_image = $_POST['product_image'];
-   $product_quantity = $_POST['product_quantity'];
-
-   $check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
-
-   if(mysqli_num_rows($check_cart_numbers) > 0){
-      $message[] = 'already added to cart!';
-   }else{
-      mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
-      $message[] = 'product added to cart!';
-   }
-
-}
+include 'add_to_cart.php';
 
 ?>
 
@@ -121,7 +96,7 @@ if(isset($_POST['add_to_cart'])){
             <div class="icons">
                 <a href="#" class="fas fa-search"></a>
                 <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
+                <a href="?act=productdetail&id=" class="fas fa-eye"></a>
             </div>
             <div class="image">
                 <img src="img/<?php echo $fetch_products['image']; ?>" alt="">
@@ -160,183 +135,6 @@ if(isset($_POST['add_to_cart'])){
 </section>
 
 
-<!-- <section class=" featured" id="featured">
-
-            <h1 class="heading"> <span>featured books</span> </h1>
-
-            <div class="swiper featured-slider">
-
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-eye"></a>
-                        </div>
-                        <div class="image">
-                            <img src="img/book2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>morden software engineering</h3>
-                            <div class="price">$22.99 <span>$30.99</span></div>
-                            <a href="?act=add_cart" class="btn"><i class="fas fa-shopping-cart"></i>add to cart</a>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-eye"></a>
-                        </div>
-                        <div class="image">
-                            <img src="img/book4.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>life 3.0</h3>
-                            <div class="price">$22.99 <span>$30.99</span></div>
-                            <a href="?act=add_cart" class="btn"><i class="fas fa-shopping-cart"></i>add to cart</a>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-eye"></a>
-                        </div>
-                        <div class="image">
-                            <img src="img/book5.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>phát minh cuối cùng</h3>
-                            <div class="price">$22.99 <span>$30.99</span></div>
-                            <a href="?act=add_cart" class="btn"><i class="fas fa-shopping-cart"></i>add to cart</a>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-eye"></a>
-                        </div>
-                        <div class="image">
-                            <img src="img/book1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>the pragmatic programmer</h3>
-                            <div class="price">$22.99 <span>$30.99</span></div>
-                            <a href="?act=add_cart" class="btn"><i class="fas fa-shopping-cart"></i>add to cart</a>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-eye"></a>
-                        </div>
-                        <div class="image">
-                            <img src="img/book7.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>think java</h3>
-                            <div class="price">$22.99 <span>$30.99</span></div>
-                            <a href="?act=add_cart" class="btn"><i class="fas fa-shopping-cart"></i>add to cart</a>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-eye"></a>
-                        </div>
-                        <div class="image">
-                            <img src="img/Book6.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>kỷ nguyên trí tuyện nhân tạo</h3>
-                            <div class="price">$22.99 <span>$30.99</span></div>
-                            <a href="?act=add_cart" class="btn"><i class="fas fa-shopping-cart"></i>add to cart</a>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-eye"></a>
-                        </div>
-                        <div class="image">
-                            <img src="img/book9.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>các siêu cường AI..</h3>
-                            <div class="price">$22.99 <span>$30.99</span></div>
-                            <a href="?act=add_cart" class="btn"><i class="fas fa-shopping-cart"></i>add to cart</a>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-eye"></a>
-                        </div>
-                        <div class="image">
-                            <img src="img/book10.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>the c++ standard library</h3>
-                            <div class="price">$22.99 <span>$30.99</span></div>
-                            <a href="?act=add_cart" class="btn"><i class="fas fa-shopping-cart"></i>add to cart</a>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-eye"></a>
-                        </div>
-                        <div class="image">
-                            <img src="img/book12.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>effective java</h3>
-                            <div class="price">$22.99 <span>$30.99</span></div>
-                            <a href="?act=add_cart" class="btn"><i class="fas fa-shopping-cart"></i>add to cart</a>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-eye"></a>
-                        </div>
-                        <div class="image">
-                            <img src="img/thecleancoder.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>the clean coder</h3>
-                            <div class="price">$22.99 <span>$30.99</span></div>
-                            <a href="?act=add_cart" class="btn"><i class="fas fa-shopping-cart"></i>add to cart</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-
-            </div>
-
-</section> -->
-
 <!------------------- featured section end ---------------------->
 
 <section class="about">
@@ -370,5 +168,6 @@ if(isset($_POST['add_to_cart'])){
     </div>
 
 </section>
+
 
 <!------------- newsletter section ends ------------------>

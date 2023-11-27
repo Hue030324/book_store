@@ -113,7 +113,7 @@ const button  =document.querySelector(".product-content-bottom-top")
 
  // slide cua phan book o dau trang home
 
- var swiper = new Swiper(".books-slider", {
+ var Swiper = new Swiper(".books-slider", {
   loop: true,
   centeredSlides: true,
   autoplay: {
@@ -121,9 +121,9 @@ const button  =document.querySelector(".product-content-bottom-top")
       disableOnInteraction: false,
   },
   breakpoints: {
-    // 0: {
-    //   slidesPerView: 1,
-    // },
+    0: {
+      slidesPerView: 1,
+    },
     768: {
       slidesPerView: 2,
     },
