@@ -1,17 +1,18 @@
 <?php
     include ("connect.php");
+    include 'add_to_cart.php';
 
-    include ('add_to_cart.php');
     
     if(isset($_GET['id'])){
         $id=$_GET['id'];
+    }else{
+        $id=" ";
     }
-    
     $sql_detail= mysqli_query($conn,"SELECT *FROM products WHERE product_id ='$id'");
 ?>
 
 <?php
-while($row_detail = mysqli_fetch_array($sql_detail)){
+    while($row_detail = mysqli_fetch_array($sql_detail)){
 ?>
 <section class="product-content">
     <div class="pro">
@@ -21,9 +22,8 @@ while($row_detail = mysqli_fetch_array($sql_detail)){
             <div class="product-content row">
                 <div class="product-content-left row">
                     <div class="product-content-left-big-img">
-                        <a href="?act=productdetail&id=<?php echo $row_detail['product_id']; ?>">
-                            <img class="image" src="img/<?php echo $row_detail['image']; ?>" alt="">
-                        </a>
+
+                        <img src="img/<?php echo $row_detail['image']?> ">
                     </div>
                     <div class="product-content-left-small-img">
 
@@ -62,7 +62,7 @@ while($row_detail = mysqli_fetch_array($sql_detail)){
                         <div class="price">$<?php echo $row_detail['price']?></div>
                         <div class="sale">
                             <?php 
-                                $sale=round((($row_detail['original_price']-$row_detail['price'])/$row_detail['original_price'])*100,2);
+                                $sale=round((($row_detail['original_price']-$row_detail['price'])/$row_detail['original_price'])*100,1);
                                 echo $sale?>% OFF
                         </div>
                     </div>
@@ -136,6 +136,7 @@ while($row_detail = mysqli_fetch_array($sql_detail)){
     </div>
 </section>
 <?php }?>
+
 <!------------------- featured section starts ---------------------->
 
 <section class="featured" id="featured">
@@ -154,7 +155,7 @@ while($row_detail = mysqli_fetch_array($sql_detail)){
             <div class="icons">
                 <a href="#" class="fas fa-search"></a>
                 <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
+                <a href="?act=productdetail&id=<?php echo $fetch_products['product_id']; ?>" class="fas fa-eye"></a>
             </div>
             <div class="image">
                 <img src="img/<?php echo $fetch_products['image']; ?>" alt="">
@@ -170,6 +171,7 @@ while($row_detail = mysqli_fetch_array($sql_detail)){
             </div>
 
             <!-- <input type="number" min="1" name="product_quantity" value="1" class="qty"> -->
+            <input type="hidden" name="product_id" value="<?php echo $fetch_products['product_id']; ?>">
             <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
             <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
             <input type="hidden" name="product_ori_price" value="<?php echo $fetch_products['original_price']; ?>">
@@ -191,6 +193,3 @@ while($row_detail = mysqli_fetch_array($sql_detail)){
 
 
 </section>
-
-
-<!------------------- featured section end ---------------------->

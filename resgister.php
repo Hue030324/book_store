@@ -81,7 +81,7 @@ if(isset($_POST['submit'])){
 
             <select name="user_type" class="box">
                 <option value="user">user</option>
-                <option value="admin">admin</option>
+                <!-- <option value="admin">admin</option> -->
             </select>
 
             <input type="submit" name="submit" value="sign up" class="btn">

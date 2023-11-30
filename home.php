@@ -96,7 +96,7 @@ include 'add_to_cart.php';
             <div class="icons">
                 <a href="#" class="fas fa-search"></a>
                 <a href="#" class="fas fa-heart"></a>
-                <a href="?act=productdetail&id=" class="fas fa-eye"></a>
+                <a href="?act=productdetail&id=<?php echo $fetch_products['product_id']; ?>" class="fas fa-eye"></a>
             </div>
             <div class="image">
                 <img src="img/<?php echo $fetch_products['image']; ?>" alt="">
@@ -112,6 +112,7 @@ include 'add_to_cart.php';
             </div>
 
             <!-- <input type="number" min="1" name="product_quantity" value="1" class="qty"> -->
+            <input type="hidden" name="product_id" value="<?php echo $fetch_products['product_id']; ?>">
             <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
             <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
             <input type="hidden" name="product_ori_price" value="<?php echo $fetch_products['original_price']; ?>">

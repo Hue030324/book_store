@@ -147,21 +147,22 @@ section{
 
 .message{
     position: sticky;
-    top:10rem;
+    top:0;
     margin:0 auto;
-    max-width: 1200px;
+    width: auto;
     background-color: var(--white);
-    padding:2rem;
+    padding:1.5rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     z-index: 10000;
     gap:1.5rem;
+    border: var(--border);
  }
  
  .message span{
     font-size: 2rem;
-    color:var(--black);
+    color:var(--red);
  }
  
  .message i{
@@ -258,11 +259,11 @@ section{
 
 .header .header-1 .account-box{
     position: absolute;
-    top: 10%; right: 2rem;
-    width: 25rem;
+    top: 8%; right: 2rem;
+    width: 24rem;
     box-shadow: var(--box-shadow);
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1.5rem;
     background: var(--white);
     text-align: center;
     border: var(--border);
@@ -271,17 +272,18 @@ section{
 }
 
 .header .header-1 .account-box.active{
-    display: inline-block;
+    display: block;
 }
 
 .header .header-1 .account-box p{
     font-size: 1.5rem;
     color: var(--black-1);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .header .header-1 .account-box p span{
     color: var(--green);
+    font-size: 1.6rem;
 }
 
 /* header 1 end */
